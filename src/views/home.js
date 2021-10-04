@@ -1,6 +1,10 @@
 /* eslint-disable eol-last */
-import signOut from '../firebase/auth.js';
-import userInfo from '../firebase/authh.js';
+import {
+  signOut,
+} from '../firebase/auth.js';
+import {
+  userInfo,
+} from '../firebase/authh.js';
 
 import {
   createNewPost,
@@ -32,7 +36,6 @@ const createPost = (document) => {
   const idButtonPublish = document.querySelector('#idButtonPublish');
   const idPublishBox = document.querySelector('#idPublishBox');
   const user = userInfo();
-  console.log(userInfo, 'function home');
 
   idButtonPublish.addEventListener('click', (e) => {
     e.preventDefault();
