@@ -1,5 +1,17 @@
-// Este es el punto de entrada de tu aplicacion
+/* eslint-disable eol-last */
+/* eslint-disable spaced-comment */
+/* eslint-disable indent */
+import {
+  changeMenu,
+} from './router.js';
 
-import { myFunction } from './lib/index.js';
-
-myFunction();
+const initRouter = () => {
+  window.addEventListener('hashchange', () => { //se ejecuta cuando cambia la url despues de "#"
+    changeMenu(window.location.hash);
+  });
+};
+//window.addEventListener('load', initRouter);
+window.addEventListener('load', () => {
+  changeMenu(window.location.hash); // #...
+  initRouter();
+});
