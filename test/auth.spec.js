@@ -6,17 +6,17 @@ import {
   signInWithGoogle,
   signOut,
   singInWEP,
-  userInfo,
-  authStateChanged,
 } from '../src/firebase/auth.js';
 
-// Configurando firebase mock
-const firebaseMock = require('firebase-mock');
+// Configurando firebase-mock
+const firebasemock = require('firebase-mock');
 
-const mockauth = new firebaseMock.MockAuthentication();
+// const mockauth = new firebasemock.MockAuthentication();
+const mockauth = new firebasemock.MockFirebase();
 mockauth.autoFlush();
 
-global.firebase = firebaseMock.MockFirebaseSdk(
+// De manera global, firebase será reemp. por MockFirebaseSdk
+global.firebase = firebasemock.MockFirebaseSdk(
   () => null, // usar null si cód. no es Autenticación, firestore, storage o messaging
   () => mockauth,
 );
@@ -38,14 +38,6 @@ describe('Function signInWithGoogle', () => {
   });
 });
 
-// describe('Function signInWithGoogle', () => {
-//   it('User should log in with Google', () => signInWithGoogle()
-//     .then((user) => {
-//       const providerGoogle = user.providerData[0].providerId;
-//       expect(providerGoogle).toBe('google.com');
-//     }));
-// });
-
 describe('Function signOut', () => {
   it('User should log out session', () => {
     signOut().then((user) => {
@@ -59,54 +51,4 @@ describe('Function singInWEP', () => {
     .then((user) => {
       expect(user.email).toBe('nanita462@gmail.com');
     }));
-});
-
-describe('Function userInfo', () => {
-  it('Should give user data if user logs in', () => {
-    const userMock = {
-      userInfo: {
-        id: '001',
-        displayName: 'fulanita',
-        photo: '../src/img/avatar.png',
-      },
-    };
-    userMock.currentUser = authStateChanged();
-    const isId = () => {
-      expect(userInfo.id).toEqual('001');
-    };
-    userInfo(isId);
-  });
-
-  it('Should give user data without a photo if user logs in', () => {
-    const userMock = {
-      userInfo: {
-        id: '001',
-        displayName: 'fulanita',
-        photo: null,
-      },
-    };
-    userMock.currentUser = authStateChanged();
-    const isId = () => {
-      expect(userInfo.photo).toEqual('../src/img/avatar.png');
-    };
-    userInfo(isId);
-  });
-  it('Should dont give user data', () => {
-    const userMock = {
-      userInfo: {
-        id: null,
-        displayName: null,
-        photo: null,
-      },
-    };
-    userMock.currentUser = authStateChanged();
-    const isId = () => {
-      expect(userInfo.photo).toEqual(null);
-    };
-    userInfo(isId);
-  });
-
-  // it('Should not give user data if user logs out', () => {
-  //   expect(userInfo.id).toBe(undefined);
-  // });
 });

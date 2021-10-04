@@ -12,4 +12,5 @@ const firebase = {
   storage,
 };
 
+// Método de Jest para crear funciones fake "mocks"
 export default jest.fn(() => firebase);

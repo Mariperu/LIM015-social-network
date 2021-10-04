@@ -14,7 +14,7 @@
     "eslint": "eslint --ext .js src/ test/",
     "stylelint": "stylelint --aei src/**/*.css",
     "pretest": "npm run htmlhint && npm run eslint && npm run stylelint",
-    "test": "jest --coverage",
+    "test": "jest --coverage --verbose",
     "start": "serve src/"
   },
   "devDependencies": {
@@ -37,6 +37,7 @@
     "node": ">=10"
   },
   "dependencies": {
-    "firebase-mock": "^2.3.2"
+    "firebase-mock": "^2.3.2",
+    "gh-pages": "^3.2.3"
   }
 }

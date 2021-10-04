@@ -56,18 +56,19 @@ header {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: right;
+  *text-align: right;
 }
 
 .secViewDesktop .secCover > img {
   display: none;
 }
-.secCover h1 {
+.textCover {
   font-family: "Ribeye", cursive;
   color: #834813;
   font-size: 28px;
   margin-top: 0px;
   margin-bottom: 0px;
+  text-align: right;
 }
 .imgCover {
   width: 100%;
@@ -83,9 +84,11 @@ header {
 .textCover2 {
   font-family: "Ribeye", cursive;
   color: #834813;
-  font-size: 28px;
+  font-size: 24px;
   margin-top: 0px;
   margin-bottom: 0px;
+  text-align: center;
+  padding-left: 25px;
 }
 
 .secLogin {
@@ -535,56 +538,51 @@ header {
     background: linear-gradient(#ffffff, #bfaf80);
     display: flex;
     flex-direction: row;
-
   }
-  .sendCommentForm{
+  .sendCommentForm {
     padding-top: 8px;
     padding-left: 10px;
     cursor: pointer;
   }
-  .newComment{
+  .newComment {
     display: flex;
     flex-direction: column;
     background: linear-gradient(#c7cac9, #ffffff);
     margin-top: 5px;
   }
   /*modificado 12:36*/
-  .userReadComment{
-    padding: 10px  10px 0px 10px;
+  .userReadComment {
+    padding: 10px 10px 0px 10px;
     margin: 0px;
     display: flex;
     flex-direction: row;
-    
   }
   /*modificado 15:36*/
-  .userName{
+  .userName {
     margin: 0px;
     padding: 0px 10px 0px 10px;
     font-size: 16px;
-    
   }
   /*modificado 15:36*/
-  .userReadComment >span{
+  .userReadComment > span {
     font-size: 12px;
     margin: 0px;
     padding-left: 60px;
-    
-    }
-  .readCommentp{
+  }
+  .readCommentp {
     margin: 5px 0px 0px 0px;
     padding: 2px 15px 3px 15px;
     font-family: "Roboto", sans-serif;
-    font-size:15px;
+    font-size: 15px;
   }
-  .deleteComment{
+  .deleteComment {
     display: flex;
     justify-content: right;
     padding: 0px 15px 10px 0px;
     font-size: 12px;
     cursor: pointer;
-
   }
-  .fa-trash-alt{
+  .fa-trash-alt {
     padding: 0px 2px 0px 0px;
     cursor: pointer;
   }
@@ -727,13 +725,11 @@ header {
     padding: 0px 3px 0px 3px;
   }
   /*cambios 12:38*/
-  .imageCircle{
+  .imageCircle {
     width: 30px;
     height: 30px;
     border-radius: 50px;
-    
   }
- 
 }
 
 /*** VISTA Ipad ***/
@@ -946,7 +942,7 @@ header {
     background-color: white;
     border-color: #bfaf80;
   }
- 
+
   .textComment {
     width: 85%;
     height: 25px;
@@ -1086,62 +1082,57 @@ header {
     display: flex;
     flex-direction: row;
   }
-  .sendCommentForm{
+  .sendCommentForm {
     padding-top: 8px;
     padding-left: 10px;
     cursor: pointer;
   }
-  .newComment{
+  .newComment {
     display: flex;
     flex-direction: column;
     background: linear-gradient(#c7cac9, #ffffff);
     margin-top: 5px;
   }
   /*modificado 12:36*/
-  .userReadComment{
-    padding: 10px  10px 0px 10px;
+  .userReadComment {
+    padding: 10px 10px 0px 10px;
     margin: 0px;
     display: flex;
     flex-direction: row;
-    
   }
   /*modificado 15:36*/
-  .userName{
+  .userName {
     margin: 0px;
     padding: 0px 10px 0px 10px;
     font-size: 16px;
-    
   }
   /*modificado 15:36*/
-  .userReadComment >span{
+  .userReadComment > span {
     font-size: 12px;
     margin: 0px;
     padding-left: 390px;
-    
-    }
-  .readCommentp{
+  }
+  .readCommentp {
     margin: 10px 0px 0px 0px;
     padding: 2px 15px 3px 15px;
     font-family: "Roboto", sans-serif;
-    font-size:15px;
+    font-size: 15px;
   }
-  .deleteComment{
+  .deleteComment {
     display: flex;
     justify-content: right;
     padding: 0px 15px 10px 0px;
     font-size: 12px;
     cursor: pointer;
-
   }
-  .fa-trash-alt{
+  .fa-trash-alt {
     padding: 0px 2px 0px 0px;
     cursor: pointer;
   }
-  .imageCircle{
+  .imageCircle {
     width: 30px;
     height: 30px;
     border-radius: 50px;
-    
   }
 }
 
@@ -1514,61 +1505,56 @@ header {
   }
   /*------------Estilos Comentarios-------*/
 
-  .sendCommentForm{
+  .sendCommentForm {
     padding-top: 8px;
     padding-left: 10px;
     cursor: pointer;
   }
-  .newComment{
+  .newComment {
     display: flex;
     flex-direction: column;
     background: linear-gradient(#c7cac9, #ffffff);
     margin-top: 5px;
   }
   /*modificado 12:36*/
-  .userReadComment{
-    padding: 10px  10px 0px 10px;
+  .userReadComment {
+    padding: 10px 10px 0px 10px;
     margin: 0px;
     display: flex;
     flex-direction: row;
-    
   }
   /*modificado 15:36*/
-  .userName{
+  .userName {
     margin: 0px;
     padding: 0px 10px 0px 10px;
     font-size: 16px;
-    
   }
   /*modificado 15:36*/
-  .userReadComment >span{
+  .userReadComment > span {
     font-size: 12px;
     margin: 0px;
     padding-left: 385px;
-    
-    }
-  .readCommentp{
+  }
+  .readCommentp {
     margin: 10px 0px 0px 0px;
     padding: 2px 15px 3px 15px;
     font-family: "Roboto", sans-serif;
-    font-size:15px;
+    font-size: 15px;
   }
-  .deleteComment{
+  .deleteComment {
     display: flex;
     justify-content: right;
     padding: 0px 15px 10px 0px;
     font-size: 12px;
     cursor: pointer;
-
   }
-  .fa-trash-alt{
+  .fa-trash-alt {
     padding: 0px 2px 0px 0px;
     cursor: pointer;
   }
-  .imageCircle{
+  .imageCircle {
     width: 30px;
     height: 30px;
     border-radius: 50px;
-    
   }
 }

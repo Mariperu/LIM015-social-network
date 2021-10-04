@@ -31,6 +31,7 @@ const orderDate = () => {
   return parseInt(`${year}${month}${day}${hour}${minute}${second}`, 0);
 };
 
+// Agrega objeto (datos del post) a la colección 'posts'
 export const createNewPost = (photo, name, id, content, counterLikes, postImgUrl) => firebase.firestore().collection('posts').add({
   photo,
   name,
@@ -42,6 +43,7 @@ export const createNewPost = (photo, name, id, content, counterLikes, postImgUrl
   postImgUrl,
 });
 
+// Trae todos los post cada vez que se actualice
 export const readAllPosts = (cb) => firebase.firestore().collection('posts')
   .orderBy('orderDate', 'desc')
   .onSnapshot((querySnapshot) => {
@@ -63,6 +65,7 @@ export const updatePost = (idpost, valueEdited) => firebase.firestore().collecti
 
 export const deletePost = (id) => firebase.firestore().collection('posts').doc(id).delete();
 
+// Agrega el objeto (datos del comentario) a la colección 'comments'
 export const createComments = (idpost, photoComment, nameComment, idCommentUser, comment) => firebase.firestore().collection('comments').add({
   idpost,
   photoComment,
@@ -73,7 +76,7 @@ export const createComments = (idpost, photoComment, nameComment, idCommentUser,
   orderDate: orderDate(),
 });
 
-// // Leer comentarios
+// Trae todos los comentarios cada vez que se actualice
 export const readAllComments = (cb) => firebase.firestore().collection('comments')
   .orderBy('orderDate', 'desc')
   .onSnapshot((querySnapshot) => {

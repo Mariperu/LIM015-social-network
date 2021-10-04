@@ -3,7 +3,7 @@
 import components from './views/components.js';
 import {
   authStateChanged,
-} from './firebase/auth.js';
+} from './firebase/authh.js';
 
 const changeMenu = (route) => {
   const root = document.querySelector('#root');
