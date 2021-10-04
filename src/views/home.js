@@ -1,6 +1,10 @@
 /* eslint-disable eol-last */
-import signOut from '../firebase/auth.js';
-import userInfo from '../firebase/authh.js';
+import {
+  signOut,
+} from '../firebase/auth.js';
+import {
+  userInfo,
+} from '../firebase/authh.js';
 
 import {
   createNewPost,
