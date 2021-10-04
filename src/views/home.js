@@ -36,7 +36,6 @@ const createPost = (document) => {
   const idButtonPublish = document.querySelector('#idButtonPublish');
   const idPublishBox = document.querySelector('#idPublishBox');
   const user = userInfo();
-  console.log(userInfo, 'function home');
 
   idButtonPublish.addEventListener('click', (e) => {
     e.preventDefault();
