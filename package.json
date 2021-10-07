@@ -1,6 +1,6 @@
 {
-  "name": "social-network",
-  "version": "1.0.0",
+  "name": "ecopunto",
+  "version": "1.0.1",
   "description": "Social Network @ Laboratoria",
   "main": "src/index.html",
   "keywords": [
