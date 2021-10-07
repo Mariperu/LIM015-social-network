@@ -1,5 +1,4 @@
 /* eslint-disable eol-last */
-
 const storage = () => ({
   ref: (location) => ({
     put: (file) => new Promise((resolve) => {

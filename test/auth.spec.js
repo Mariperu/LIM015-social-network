@@ -1,11 +1,10 @@
 /* eslint-disable eol-last */
 /* eslint-disable indent */
-// https://github.com/soumak77/firebase-mock/blob/master/tutorials/integration/setup.md
 import {
   createUserWEP,
   signInWithGoogle,
-  signOut,
   singInWEP,
+  signOut,
 } from '../src/firebase/auth.js';
 
 // Configurando firebase-mock
@@ -22,12 +21,12 @@ global.firebase = firebasemock.MockFirebaseSdk(
 );
 
 describe('Function createUserWEP', () => {
-  it('User should create an account with e-mail and password', () =>
-    // eslint-disable-next-line implicit-arrow-linebreak
+  it('User should create an account with e-mail and password', () => {
     createUserWEP('abc@gmail.com', '12345678a#')
-    .then((user) => {
-      expect(user.email).toBe('abc@gmail.com');
-    }));
+      .then((user) => {
+        expect(user.email).toBe('abc@gmail.com');
+      });
+  });
 });
 
 describe('Function signInWithGoogle', () => {
@@ -38,17 +37,19 @@ describe('Function signInWithGoogle', () => {
   });
 });
 
+describe('Function singInWEP', () => {
+  it('User should log in with e-mail and password', () => {
+    singInWEP('nanita462@gmail.com', '12345678a#')
+      .then((user) => {
+        expect(user.email).toBe('nanita462@gmail.com');
+      });
+  });
+});
+
 describe('Function signOut', () => {
   it('User should log out session', () => {
     signOut().then((user) => {
       expect(user.i).toBe(null);
     });
   });
-});
-
-describe('Function singInWEP', () => {
-  it('User should log in with e-mail and password', () => singInWEP('nanita462@gmail.com', '12345678a#')
-    .then((user) => {
-      expect(user.email).toBe('nanita462@gmail.com');
-    }));
 });

@@ -15,7 +15,7 @@ import {
 
 const fixtureData = {
   __collection__: {
-    posts: { // collection posts
+    posts: {
       __doc__: {
         post001: { // post id
           photo: '../src/img/avatar.png',
@@ -49,7 +49,7 @@ const fixtureData = {
         },
       },
     },
-    comments: { // collection comments
+    comments: {
       __doc__: {
         comment001: { // comment id
           idpost: 'post002',
@@ -71,16 +71,17 @@ global.firebase = new MockFirebase(fixtureData, {
 });
 
 // TEST POSTS
-
 describe('Function createNewPost', () => {
-  it('It should create a new post', () => createNewPost('../src/img/avatar.png', 'Fulanita4', '004', 'busco papeles reciclados', [], '../src/img/arbol_ecologico.png')
-    .then(() => {
-      const cb = (post) => { // console.log(post);
-        const result = post.find((elem) => elem.content === 'busco papeles reciclados');
-        expect(result.content).toBe('busco papeles reciclados');
-      };
-      readAllPosts(cb);
-    }));
+  it('It should create a new post', () => {
+    createNewPost('../src/img/avatar.png', 'Fulanita4', '004', 'busco papeles reciclados', [], '../src/img/arbol_ecologico.png')
+      .then(() => {
+        const cb = (post) => { // console.log(post);
+          const result = post.find((elem) => elem.content === 'busco papeles reciclados');
+          expect(result.content).toBe('busco papeles reciclados');
+        };
+        readAllPosts(cb);
+      });
+  });
 });
 
 describe('Function readAllPosts', () => {
@@ -93,7 +94,7 @@ describe('Function updateLike', () => {
   it('It should update likes', () => {
     updateLike('post002', 2)
       .then(() => {
-        const cb = (post) => { // console.log(post);
+        const cb = (post) => {
           const result = post.find((elem) => elem.counterLikes === 2);
           expect(result.counterLikes).toBe(2);
         };
@@ -153,133 +154,3 @@ describe('Function deleteComments', () => {
       readAllPosts(cb);
     }));
 });
-
-// *************************/
-// import MockFirebase from 'mock-cloud-firestore';
-// import {
-//   createNewPost,
-//   readAllPosts,
-//   updateLike,
-//   updatePost,
-//   deletePost,
-//   createComments,
-//   readAllComments,
-//   deleteComments,
-// } from '../src/firebase/firestore.js';
-
-// const fixtureData = {
-//   __collection__: {
-//     posts: {
-//       __doc__: {
-//         post001: {
-//           photo: '../src/img/avatar.png',
-//           name: 'Fulanita1',
-//           id: '001',
-//           content: 'tengo botellas para reciclar',
-//           countLikes: [],
-//           date: '27 sept. 2021 11:05 a. m.',
-//           orderDate: '20210827110540',
-//           postImgUrl: '../src/img/arbol_ecologico.png',
-//         },
-//         post002: {
-//           photo: '../src/img/avatar.png',
-//           name: 'Fulanita2',
-//           id: '002',
-//           content: 'tengo plastico para reciclar',
-//           countLikes: ['1'],
-//           date: '27 sept. 2021 11:07 a. m.',
-//           orderDate: '20210827110740',
-//           postImgUrl: '../src/img/arbol_ecologico.png',
-//         },
-//         post003: { // post id
-//           photo: '../src/img/avatar.png',
-//           name: 'Fulanita3',
-//           id: '003', // user id
-//           content: 'Hola',
-//           counterLikes: [],
-//           date: '27 sept. 2021 11:09 a. m.',
-//           orderDate: '20210827110940',
-//           postImgUrl: '../src/img/arbol_ecologico.png',
-//         },
-//       },
-//     },
-//     comments: {
-//       __doc__: {
-//         comment001: {
-//           idpost: 'post001',
-//           photoComment: '../src/img/avatar.png',
-//           nameComment: 'Fulanita2',
-//           idCommentUser: '002',
-//           comment: 'Yo estoy interesada, info por favor',
-//           date: '30 sept 2021 5:21 p. m',
-//           orderDate: '20210830172150',
-//         },
-//       },
-//     },
-//   },
-// };
-
-// global.firebase = new MockFirebase(fixtureData, {
-//   isNaiveSnapshotListenerEnabled: true, // activa snapshot (actualización en tiempo real)
-// });
-
-// describe('Function createNewPost', () => {
-//   test('It should create a new post', () => createNewPost('../src/img/avatar.png', 'Fulanita4', '004', 'tengo botellas para reciclar', [], '../src/img/arbol_ecologico.png')
-//     .then(() => readAllPosts(
-//       (data) => {
-//         const result = data.find((post) => post.content === 'tengo botellas para reciclar');
-//         expect(result.content).toBe('tengo botellas para reciclar');
-//       },
-//     )));
-// });
-
-// describe('Function updateLike', () => {
-//   test('It should update likes', () => updateLike('post002', 1)
-//     .then(() => readAllPosts(
-//       (data) => {
-//         const result = data.find((post) => post.counterLikes === 1);
-//         expect(result.counterLikes).toBe(1);
-//       },
-//     )));
-// });
-
-// describe('Function updatePost', () => {
-//   // eslint-disable-next-line max-len
-//   test('It should edit a post', () => updatePost('post001', 'tengo botellas para reciclar Editado')
-//     .then(() => readAllPosts(
-//       (data) => {
-//         const result = data.find((post) => post.content === 'tengo botellas para reciclar Editado');
-//         expect(result.content).toBe('tengo botellas para reciclar Editado');
-//       },
-//     )));
-// });
-
-// describe('Function deletePost', () => {
-//   test('It should delete a post', () => deletePost('post003')
-//     .then(() => readAllPosts(
-//       (data) => {
-//         const result = data.find((post) => post === 'post003');
-//         expect(result).toBe(undefined);
-//       },
-//     )));
-// });
-
-// describe('Function createComments', () => {
-//   test('It should created a comment in a post', () => createComments('post002', '../src/img/avatar.png', 'Fulanita2', '002', 'Yo estoy interesada, info por favor')
-//     .then(() => readAllComments(
-//       (data) => {
-//         const result = data.find((com) => com.comment === 'Yo estoy interesada, info por favor');
-//         expect(result.comment).toBe('Yo estoy interesada, info por favor');
-//       },
-//     )));
-// });
-
-// describe('Function deleteComments', () => {
-//   test('It should delete a comment ', () => deleteComments('comment001')
-//     .then(() => readAllComments(
-//       (data) => {
-//         const result = data.find((comment) => comment === 'comment001');
-//         expect(result).toBe(undefined);
-//       },
-//     )));
-// });
