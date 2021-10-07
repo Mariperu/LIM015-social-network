@@ -1,6 +1,6 @@
 /* eslint-disable eol-last */
-// Obtener data del usuario que ingresa a la red social
-// export const userInfo = () => firebase.auth().currentUser;
+
+// Obtiene data del usuario logueado
 export const userInfo = () => {
   const user = firebase.auth().currentUser;
   let data = '';
@@ -14,6 +14,5 @@ export const userInfo = () => {
   return data;
 };
 
-// Se llama cuando un usuario se loguea o desloguea
-// Extrae información de usuario luego de ingresar a home
+// Ejecuta cambio de estado, cuando user se loguea o desloguea
 export const authStateChanged = (cb) => firebase.auth().onAuthStateChanged(cb);

@@ -12,6 +12,25 @@ header {
   justify-content: space-between;
 }
 
+footer {
+  width: 100%;
+  height: 3vh;
+  background-color: #834813;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 12px;
+  padding-top: 6px;
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+}
+footer > a {
+  text-decoration: none;
+  color: #ffffff;
+  cursor: pointer;
+}
+
 .navbar {
   width: 100%;
   background-color: #04aa6d;
@@ -293,7 +312,7 @@ header {
   padding: 5px;
   margin-top: 0px;
 }
-/***************************************NUEVO*/
+
 .hide {
   display: none;
 }
@@ -391,14 +410,11 @@ header {
     height: 100px;
     width: 100%;
     border-radius: 10px;
-    *margin-left: 10px;
-    *margin-right: 10px;
     resize: none;
     overflow: auto;
     box-sizing: border-box;
     border: 2px solid #d1cad6;
     outline-style: none;
-    *padding-bottom: 10px;
     font-family: "Roboto", sans-serif;
     font-size: 14px;
   }
@@ -440,7 +456,6 @@ header {
     padding-top: 4px;
     margin-bottom: 15px;
     font-size: 14px;
-    *font-weight: bold;
     letter-spacing: 0.6px;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
       rgba(0, 0, 0, 0.23) 0px 6px 6px;
@@ -495,10 +510,8 @@ header {
     display: flex;
     flex-direction: row;
     margin: 0px;
-    *justify-content: space-between;
   }
   .secDescriptionPost {
-    *align-content: center;
     text-align: center;
   }
   .secDescriptionPost p {
@@ -511,8 +524,8 @@ header {
   .imgUserPost {
     width: 50px;
     height: 50px;
-    border-radius: 50px;
-    padding-left: 5px;
+    border-radius: 50%;
+    margin-left: 5px;
   }
   .userNamePost {
     font-size: 20px;
@@ -526,13 +539,12 @@ header {
     width: 30px;
     height: 30px;
     border-radius: 30px;
-    padding-right: 5px;
+    margin-right: 5px;
   }
   .secMainPost {
     background-color: white;
     border-color: #bfaf80;
   }
-  /*Aqui ultimos cambios*/
   .createComment {
     padding: 5px 10px 5px 20px;
     background: linear-gradient(#ffffff, #bfaf80);
@@ -550,24 +562,22 @@ header {
     background: linear-gradient(#c7cac9, #ffffff);
     margin-top: 5px;
   }
-  /*modificado 12:36*/
   .userReadComment {
     padding: 10px 10px 0px 10px;
     margin: 0px;
     display: flex;
     flex-direction: row;
   }
-  /*modificado 15:36*/
   .userName {
     margin: 0px;
     padding: 0px 10px 0px 10px;
     font-size: 16px;
   }
-  /*modificado 15:36*/
   .userReadComment > span {
     font-size: 12px;
     margin: 0px;
-    padding-left: 60px;
+    padding-top: 3px;
+    padding-left: 30px;
   }
   .readCommentp {
     margin: 5px 0px 0px 0px;
@@ -687,7 +697,6 @@ header {
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
       rgba(0, 0, 0, 0.23) 0px 6px 6px;
   }
-  /************************/
   .modalMenu {
     margin: 0px;
     padding: 0px 5px 0px 5px;
@@ -724,11 +733,20 @@ header {
   #idNo i {
     padding: 0px 3px 0px 3px;
   }
-  /*cambios 12:38*/
+
   .imageCircle {
     width: 30px;
     height: 30px;
     border-radius: 50px;
+  }
+
+  .errorComment {
+    font-size: 14px;
+    color: red;
+    padding: 0px;
+    margin-top: 0px;
+    text-align: center;
+    font-weight: bold;
   }
 }
 
@@ -767,7 +785,6 @@ header {
   .nameUser1 {
     padding-bottom: 0px;
     margin-top: 5px;
-    *font-weight: bold;
     margin-bottom: 0px;
     margin-right: 10px;
   }
@@ -778,13 +795,6 @@ header {
     border-radius: 50%;
     cursor: pointer;
   }
-  /* .secHomePublish {
-    *display: flex;
-    *flex-direction: column;
-    *padding-left: 0px;
-    *padding-right: 8px;
-    *padding: 0px;
-  } */
 
   .secPublishBox {
     height: 98%;
@@ -811,6 +821,7 @@ header {
     padding: 15px;
     font-family: "Roboto", sans-serif;
   }
+
   .errorPublish {
     font-size: 14px;
     color: red;
@@ -905,7 +916,6 @@ header {
     margin: 0px;
   }
   .secDescriptionPost {
-    *align-content: center;
     text-align: center;
   }
   .secDescriptionPost p {
@@ -919,8 +929,8 @@ header {
   .imgUserPost {
     width: 50px;
     height: 50px;
-    border-radius: 50px;
-    padding-left: 5px;
+    border-radius: 50%;
+    margin-left: 5px;
   }
   .userNamePost {
     font-size: 20px;
@@ -935,8 +945,8 @@ header {
     width: 30px;
     height: 30px;
     border-radius: 30px;
-    padding-top: 3px;
-    padding-right: 10px;
+    margin-top: 3px;
+    margin-right: 10px;
   }
   .secMainPost {
     background-color: white;
@@ -1010,7 +1020,6 @@ header {
   }
   .formProfile {
     text-align: center;
-    *padding-top: 10px;
   }
   .formProfile h2 {
     font-size: 18px;
@@ -1038,7 +1047,7 @@ header {
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
       rgba(0, 0, 0, 0.23) 0px 6px 6px;
   }
-  /***********************/
+
   .modalMenu {
     margin: 0px;
     padding: 0px 5px 0px 5px;
@@ -1075,7 +1084,7 @@ header {
   #idNo i {
     padding: 0px 3px 0px 3px;
   }
-  /*--------Aqui estilo comentarios---------*/
+
   .createComment {
     padding: 5px 10px 5px 20px;
     background: linear-gradient(#ffffff, #bfaf80);
@@ -1093,24 +1102,22 @@ header {
     background: linear-gradient(#c7cac9, #ffffff);
     margin-top: 5px;
   }
-  /*modificado 12:36*/
+
   .userReadComment {
     padding: 10px 10px 0px 10px;
     margin: 0px;
     display: flex;
     flex-direction: row;
   }
-  /*modificado 15:36*/
   .userName {
     margin: 0px;
     padding: 0px 10px 0px 10px;
     font-size: 16px;
   }
-  /*modificado 15:36*/
   .userReadComment > span {
     font-size: 12px;
     margin: 0px;
-    padding-left: 390px;
+    padding-left: 360px;
   }
   .readCommentp {
     margin: 10px 0px 0px 0px;
@@ -1133,6 +1140,14 @@ header {
     width: 30px;
     height: 30px;
     border-radius: 50px;
+  }
+  .errorComment {
+    font-size: 14px;
+    color: red;
+    padding: 0px;
+    margin-top: 0px;
+    text-align: center;
+    font-weight: bold;
   }
 }
 
@@ -1173,8 +1188,6 @@ header {
     display: flex;
     justify-content: left;
     width: 100%;
-    *margin-left: 9px;
-    *padding: 10px;
   }
 
   .secTextInfo {
@@ -1188,7 +1201,6 @@ header {
   .nameUser1 {
     padding-bottom: 0px;
     margin-top: 7px;
-    *font-weight: bold;
     margin-bottom: 0px;
     margin-right: 10px;
   }
@@ -1211,7 +1223,6 @@ header {
     height: 180px;
     width: 100%;
     border-radius: 20px;
-    *margin-left: 3px;
     background-color: #ffffff;
     border: #1d8c6c 1px solid;
     display: flex;
@@ -1328,7 +1339,6 @@ header {
     margin: 0px;
   }
   .secDescriptionPost {
-    *align-content: center;
     text-align: center;
   }
   .secDescriptionPost p {
@@ -1342,8 +1352,8 @@ header {
   .imgUserPost {
     width: 55px;
     height: 55px;
-    border-radius: 55px;
-    padding-left: 5px;
+    border-radius: 50%;
+    margin-left: 5px;
   }
   .userNamePost {
     font-size: 20px;
@@ -1358,8 +1368,8 @@ header {
     width: 33px;
     height: 33px;
     border-radius: 33px;
-    padding-top: 3px;
-    padding-right: 10px;
+    margin-top: 3px;
+    margin-right: 10px;
   }
   .secMainPost {
     background-color: white;
@@ -1438,7 +1448,6 @@ header {
   }
   .formProfile {
     text-align: center;
-    *padding-top: 10px;
   }
   .formProfile h2 {
     font-size: 18px;
@@ -1466,7 +1475,7 @@ header {
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
       rgba(0, 0, 0, 0.23) 0px 6px 6px;
   }
-  /***************************/
+
   .modalMenu {
     margin: 0px;
     padding: 0px 5px 0px 5px;
@@ -1503,7 +1512,6 @@ header {
   #idNo i {
     padding: 0px 3px 0px 3px;
   }
-  /*------------Estilos Comentarios-------*/
 
   .sendCommentForm {
     padding-top: 8px;
@@ -1516,24 +1524,22 @@ header {
     background: linear-gradient(#c7cac9, #ffffff);
     margin-top: 5px;
   }
-  /*modificado 12:36*/
+
   .userReadComment {
     padding: 10px 10px 0px 10px;
     margin: 0px;
     display: flex;
     flex-direction: row;
   }
-  /*modificado 15:36*/
   .userName {
     margin: 0px;
     padding: 0px 10px 0px 10px;
     font-size: 16px;
   }
-  /*modificado 15:36*/
   .userReadComment > span {
     font-size: 12px;
     margin: 0px;
-    padding-left: 385px;
+    padding-left: 280px;
   }
   .readCommentp {
     margin: 10px 0px 0px 0px;
@@ -1556,5 +1562,13 @@ header {
     width: 30px;
     height: 30px;
     border-radius: 50px;
+  }
+  .errorComment {
+    font-size: 14px;
+    color: red;
+    padding: 0px;
+    margin-top: 0px;
+    text-align: center;
+    font-weight: bold;
   }
 }

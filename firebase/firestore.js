@@ -46,7 +46,7 @@ export const createNewPost = (photo, name, id, content, counterLikes, postImgUrl
 // Trae todos los post cada vez que se actualice
 export const readAllPosts = (cb) => firebase.firestore().collection('posts')
   .orderBy('orderDate', 'desc')
-  .onSnapshot((querySnapshot) => {
+  .onSnapshot((querySnapshot) => { // actualiza post
     const post = querySnapshot.docs.map((doc) => ({
       idPost: doc.id,
       ...doc.data(),
@@ -58,7 +58,7 @@ export const updateLike = (idpost, counterLikes) => firebase.firestore().collect
   counterLikes,
 });
 
-// Subir post y crea coleccion "post"
+// Actualiza post Editado
 export const updatePost = (idpost, valueEdited) => firebase.firestore().collection('posts').doc(idpost).update({
   content: valueEdited,
 });
@@ -79,12 +79,11 @@ export const createComments = (idpost, photoComment, nameComment, idCommentUser,
 // Trae todos los comentarios cada vez que se actualice
 export const readAllComments = (cb) => firebase.firestore().collection('comments')
   .orderBy('orderDate', 'desc')
-  .onSnapshot((querySnapshot) => {
+  .onSnapshot((querySnapshot) => { // actualiza comments
     const comment = querySnapshot.docs.map((doc) => ({
       idComment: doc.id,
       ...doc.data(),
     }));
-    // console.log(comment);// array de TODOS los coments ingresados
     cb(comment);
   });
 
