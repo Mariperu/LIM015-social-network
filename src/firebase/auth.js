@@ -1,20 +1,19 @@
 /* eslint-disable eol-last */
 /* eslint-disable indent */
 
-// Registrar usuarios nuevos con correo y contraseña
+// Registrar
 export const createUserWEP = (email, password) =>
   // eslint-disable-next-line implicit-arrow-linebreak
   firebase.auth().createUserWithEmailAndPassword(email, password);
 
-// Registrar cuenta con Google
+// Loguear con google
 export const signInWithGoogle = () => {
   const provider = new firebase.auth.GoogleAuthProvider(); // Proveedor de google
-  return firebase.auth().signInWithPopup(provider); // Popup abre modal para selec cuenta gmail
+  return firebase.auth().signInWithPopup(provider); // Popup, modal para selec cuenta google
 };
+
+// Loguear con Email y password
+export const singInWEP = (email, password) => firebase.auth().signInWithEmailAndPassword(email, password);
 
 // Cerrar sesión
 export const signOut = () => firebase.auth().signOut();
-
-// Logueo con Email y password
-// Acceso de usuarios existentes
-export const singInWEP = (email, password) => firebase.auth().signInWithEmailAndPassword(email, password);
