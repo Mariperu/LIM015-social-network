@@ -6,50 +6,47 @@ import {
   createUserWEP,
   signOut,
   signInWithGoogle,
-  // signInWithFb,
-  // createUser,
-  // getUser,
 } from '../firebase/auth.js';
 
-// Verificando password
+// Verificar password
 const verifyPass = ((pass) => {
   return pass.search(/(?=.*[a-z])(?=.*[0-9])(?=.*[@$#!?])[a-zA-Z0-9@$#!?]{8,32}/g) !== -1;
 });
 
-// Registro con Email y idPassword Register
-const registerWEP = (document) => {
+// Registro con Email and Password
+const registerWEP = (docForm) => {
   const formRegister = mainContainer.querySelector('form');
   formRegister.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const idNameRegister = document.querySelector('#idNameRegister').value;
-    const idEmailRegister = document.querySelector('#idEmailRegister').value;
-    const idPasswordRegister = document.querySelector('#idPasswordRegister').value;
-    const msgErrorRegister = document.querySelector('.msgErrorRegister');
+    e.preventDefault(); // detiene propagación de un evento (ejm: n submits) (? en url)
+
+    const idNameRegister = docForm.querySelector('#idNameRegister').value;
+    const idEmailRegister = docForm.querySelector('#idEmailRegister').value;
+    const idPasswordRegister = docForm.querySelector('#idPasswordRegister').value;
+    const msgErrorRegister = docForm.querySelector('.msgErrorRegister');
 
     if (verifyPass(idPasswordRegister) === false) {
-      // msgErrorRegister.innerHTML = `<p class="textError">Mínimo 8 caracteres (letra, número y carácter especial @$#!?)</p>`;
       msgErrorRegister.textContent = 'Mínimo 8 caracteres (letras, números y carácter especial @$#!?)';
     } else {
       createUserWEP(idEmailRegister, idPasswordRegister)
-        .then((credentials) => {
-          const user = credentials.user;
-          user.updateProfile({
+        .then((userCredential) => {
+          const user = userCredential.user;
+          user.updateProfile({ // Actualiza datos del perfil de un usuario
             displayName: idNameRegister,
           });
           const configRegister = {
             url: 'http://localhost:5000/#/',
           };
-          user.sendEmailVerification(configRegister)
+          user.sendEmailVerification(configRegister) // retorna a la url
             .then(() => {
-              alert("Te enviamos un correo de verificación.");
+              alert("📧 Te enviamos un correo de verificación.");
             }).catch((error) => {
               console.log(error);
             });
 
-          signOut(); // desloguea para que primero valide correo y luego se loguee correctamente desde login.
+          signOut(); // desloguea, primero valida correo y despues loguea correctamente desde login.
           window.location.hash = '#/';
-        }).catch((err) => {
-          if (err.code === 'auth/email-already-in-use') {
+        }).catch((error) => {
+          if (error.code === 'auth/email-already-in-use') {
             msgErrorRegister.textContent = 'El correo ya esta registrado. Por favor intenta con otro correo.';
           } else {
             msgErrorRegister.textContent = 'Ha ocurrido un error. Intenta otra vez.';
@@ -59,63 +56,38 @@ const registerWEP = (document) => {
   });
 };
 
-const registerWithGoogle = (document) => {
-  const idGoogle = document.querySelector("#idGoogle");
+// Registro con Google
+const registerWithGoogle = (docForm) => {
+  const idGoogle = docForm.querySelector("#idGoogle");
   idGoogle.addEventListener('click', () => {
-    const msgErrorRegister = document.querySelector('.msgErrorRegister');
+    const msgErrorRegister = docForm.querySelector('.msgErrorRegister');
 
-    signInWithGoogle()
-      .then((credentials) => {
-        // console.log(credentials)
-        const user = credentials.user;
-        window.location.hash = '#/home';
-
-        return {
-          user,
-          userEmail: user.email,
-          userName: user.displayName,
-          userPhoto: user.photoURL,
-          userToken: user.refreshToken,
-        };
-      }).catch(() => {
-        msgErrorRegister.textContent = "Ha ocurrido un error. Intenta otra vez.";
-      });
+    signInWithGoogle().then((userCredential) => {
+      const user = userCredential.user;
+      window.location.hash = '#/home';
+      return { // info de obj userCredential
+        user,
+        userEmail: user.email,
+        userName: user.displayName,
+        userPhoto: user.photoURL,
+        userToken: user.refreshToken,
+      };
+    }).catch(() => {
+      msgErrorRegister.textContent = "Ha ocurrido un error. Intenta otra vez.";
+    });
   });
 };
 
-// const registerWithFb = (document) => {
-//   const idFb = document.querySelector("#idFb");
-//   idFb.addEventListener('click', () => {
-//     const msgErrorRegister = document.querySelector('.msgErrorRegister');
-
-//     signInWithFb()
-//       .then((credentials) => {
-//         //console.log(credentials)
-//         const user = credentials.user;
-//         window.location.hash = '#/home';
-
-//         return {
-//           user,
-//           userEmail: user.email,
-//           userName: user.displayName,
-//           userPhoto: user.photoURL,
-//           userToken: user.refreshToken,
-//         };
-//       }).catch(() => {
-//         msgErrorRegister.textContent = "Ha ocurrido un error. Intenta otra vez.";
-//       })
-//   });
-// }
-
+// Template html - register
 export const registerView = () => {
   // eslint-disable-next-line spaced-comment
   const view = /*html*/ `
   <section class= "secViewDesktop">
 
     <section class= "secCover">
-    <img class="imgCoverRegister" src="img/mundoverde6.png" alt="MundoVerde">
-    <h1 class="textCover2"> Red que une a personas a intercambiar productos reciclados.</h1>
-    <h1 class="textCover2"> Únete al cambio, seamos parte de un mundo mejor...</h1>
+        <img class="imgCoverRegister" src="img/mundoverde6.png" alt="MundoVerde">
+        <h1 class="textCover2"> Red que une a personas a intercambiar productos reciclados.</h1>
+        <h1 class="textCover2"> Únete al cambio, seamos parte de un mundo mejor...</h1>
     </section>
 
     <section class= "secLogin">
@@ -151,22 +123,22 @@ export const registerView = () => {
       <h2 class="textOne">O bien registra con...</h2>
 
       <section class="secIcons">
-        <section class="secIconGoogle" id= "idGoogle">
-          <a class="iconGoogle" alt="Google">
-            <img class= "icon" src="./img/google.png" alt="Google">
-          </a>
-        </section>
+          <section class="secIconGoogle" id= "idGoogle">
+            <a class="iconGoogle" alt="Google">
+              <img class= "icon" src="./img/google.png" alt="Google">
+            </a>
+          </section>
 
-        <section class="secIconFb">
-          <a class="iconFb" alt="Facebook">
-            <img class= "icon" id= "idFb" src="./img/facebook.png" alt="facebook">
-          </a>
-        </section>
+          <section class="secIconFb">
+            <a class="iconFb" alt="Facebook">
+              <img class= "icon" id= "idFb" src="./img/facebook.png" alt="facebook">
+            </a>
+          </section>
       </section>
 
       <section class="secLinkRegister">
-        <h2 class="textOne">¿Ya tienes una cuenta?</h2>
-        <h2 class="textTwo" id= "textLogInHere"><a href='#/'>Inicia sesión aquí</a></h2>
+          <h2 class="textOne">¿Ya tienes una cuenta?</h2>
+          <h2 class="textTwo" id= "textLogInHere"><a href='#/'>Inicia sesión aquí</a></h2>
       </section>
 
     </section>
@@ -178,6 +150,5 @@ export const registerView = () => {
 
   registerWEP(mainRegister);
   registerWithGoogle(mainRegister);
-  // registerWithFb(mainRegister);
   return mainRegister;
 };

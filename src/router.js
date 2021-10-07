@@ -5,7 +5,8 @@ import {
   authStateChanged,
 } from './firebase/authh.js';
 
-const changeMenu = (route) => {
+// Rutas
+export const changeMenu = (route) => {
   const root = document.querySelector('#root');
   switch (route) {
     case '':
@@ -14,11 +15,13 @@ const changeMenu = (route) => {
     case '#/':
       root.appendChild(components.login());
       break;
+
     case '#/register':
       root.appendChild(components.register());
       break;
+
     case '#/home':
-      authStateChanged((user) => {
+      authStateChanged((user) => { // observa cambio de estado log in/out
         if (user !== null) {
           const userObject = {
             name: user.displayName,
@@ -29,8 +32,9 @@ const changeMenu = (route) => {
         }
       });
       break;
+
     case '#/profile':
-      authStateChanged((user) => {
+      authStateChanged((user) => { // observa cambio de estado log in/out
         if (user !== null) {
           const userObject = {
             name: user.displayName,
@@ -40,13 +44,9 @@ const changeMenu = (route) => {
           root.appendChild(components.profile(userObject));
         }
       });
-
       break;
+
     default:
       return components.error404();
   }
-};
-
-export {
-  changeMenu,
 };

@@ -18,7 +18,7 @@ import {
 
 import errorView from './error404.js';
 
-// Colocando vistas en objeto
+// Componentes
 export default {
   login: loginView,
   register: registerView,

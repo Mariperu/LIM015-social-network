@@ -5,12 +5,13 @@ import {
   changeMenu,
 } from './router.js';
 
+// Cambio de rutas
 const initRouter = () => {
   window.addEventListener('hashchange', () => { //se ejecuta cuando cambia la url despues de "#"
     changeMenu(window.location.hash);
   });
 };
-//window.addEventListener('load', initRouter);
+
 window.addEventListener('load', () => {
   changeMenu(window.location.hash); // #...
   initRouter();
