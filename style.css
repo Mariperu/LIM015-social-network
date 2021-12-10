@@ -1,12 +1,12 @@
 body {
-  background-color: #fffab1;
+  background-color: #fdf9bf;
   font-family: "Roboto", sans-serif;
   margin: 0px;
   padding: 0px;
 }
 
 header {
-  background-color: #04aa6d;
+  background-color: #55a603;
   display: flex;
   width: 100%;
   justify-content: space-between;
@@ -33,7 +33,8 @@ footer > a {
 
 .navbar {
   width: 100%;
-  background-color: #04aa6d;
+  *background-color: #04aa6d;
+  background-color: #55a603;
   overflow: auto;
   display: flex;
   justify-content: right;
@@ -399,7 +400,7 @@ footer > a {
     border-radius: 10px;
     margin-left: 3px;
     background-color: #ffffff;
-    border: #1d8c6c 1px solid;
+    border: #55a603 1px solid;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -502,7 +503,8 @@ footer > a {
   .secHeadPost {
     display: flex;
     flex-direction: column;
-    background: linear-gradient(#bfaf80, #ffffff);
+    *background: linear-gradient(#bfaf80, #ffffff);
+    background: linear-gradient(#fdf9bf, #ffffff);
     border-radius: 10px;
   }
   .secInfoUserPost {
@@ -547,7 +549,8 @@ footer > a {
   }
   .createComment {
     padding: 5px 10px 5px 20px;
-    background: linear-gradient(#ffffff, #bfaf80);
+    *background: linear-gradient(#ffffff, #bfaf80);
+    background: linear-gradient(#ffffff, #fdf9bf);
     display: flex;
     flex-direction: row;
   }
@@ -559,7 +562,7 @@ footer > a {
   .newComment {
     display: flex;
     flex-direction: column;
-    background: linear-gradient(#c7cac9, #ffffff);
+    background: linear-gradient(#fdf9bf, #ffffff);
     margin-top: 5px;
   }
   .userReadComment {
@@ -602,7 +605,7 @@ footer > a {
     border-radius: 10px;
     padding-top: 5px;
     padding-left: 5px;
-    border: #1d8c6c 0.8px solid;
+    border: #55a603 0.8px solid;
     font-family: "Roboto", sans-serif;
     font-size: 14px;
   }
@@ -616,7 +619,8 @@ footer > a {
     flex-direction: row;
     padding-bottom: 10px;
     padding-left: 20px;
-    background: linear-gradient(#ffffff, #ccc1a0);
+    *background: linear-gradient(#ffffff, #ccc1a0);
+    background: linear-gradient(#ffffff, #fdf9bf);
   }
 
   .iconPost {
@@ -802,7 +806,7 @@ footer > a {
     border-radius: 20px;
     margin-left: 0px;
     background-color: #ffffff;
-    border: #1d8c6c 1px solid;
+    border: #55a603 1px solid;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -906,7 +910,8 @@ footer > a {
   .secHeadPost {
     display: flex;
     flex-direction: column;
-    background: linear-gradient(#bfaf80, #ffffff);
+    *background: linear-gradient(#bfaf80, #ffffff);
+    background: linear-gradient(#fdf9bf, #ffffff);
     border-radius: 10px;
   }
   .secInfoUserPost {
@@ -959,7 +964,7 @@ footer > a {
     border-radius: 10px;
     padding-top: 10px;
     padding-left: 10px;
-    border: #1d8c6c 0.8px solid;
+    border: #55a603 0.8px solid;
     font-family: "Roboto", sans-serif;
     font-size: 15px;
   }
@@ -973,7 +978,8 @@ footer > a {
     flex-direction: row;
     padding-bottom: 10px;
     padding-left: 20px;
-    background: linear-gradient(#ffffff, #ccc1a0);
+    *background: linear-gradient(#ffffff, #ccc1a0);
+    background: linear-gradient(#ffffff, #fdf9bf);
   }
   .iconPost {
     padding-left: 10px;
@@ -1087,7 +1093,8 @@ footer > a {
 
   .createComment {
     padding: 5px 10px 5px 20px;
-    background: linear-gradient(#ffffff, #bfaf80);
+    *background: linear-gradient(#ffffff, #bfaf80);
+    background: linear-gradient(#ffffff, #fdf9bf);
     display: flex;
     flex-direction: row;
   }
@@ -1099,7 +1106,7 @@ footer > a {
   .newComment {
     display: flex;
     flex-direction: column;
-    background: linear-gradient(#c7cac9, #ffffff);
+    background: linear-gradient(#fdf9bf, #ffffff);
     margin-top: 5px;
   }
 
@@ -1224,7 +1231,7 @@ footer > a {
     width: 100%;
     border-radius: 20px;
     background-color: #ffffff;
-    border: #1d8c6c 1px solid;
+    border: #55a603 1px solid;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1329,7 +1336,8 @@ footer > a {
   .secHeadPost {
     display: flex;
     flex-direction: column;
-    background: linear-gradient(#bfaf80, #ffffff);
+    *background: linear-gradient(#bfaf80, #ffffff);
+    background: linear-gradient(#fdf9bf, #ffffff);
     border-radius: 10px;
   }
   .secInfoUserPost {
@@ -1377,7 +1385,8 @@ footer > a {
   }
   .createComment {
     padding: 5px 10px 5px 20px;
-    background: linear-gradient(#ffffff, #bfaf80);
+    *background: linear-gradient(#ffffff, #bfaf80);
+    background: linear-gradient(#fdf9bf, #ffffff);
     display: flex;
     flex-direction: row;
   }
@@ -1387,7 +1396,7 @@ footer > a {
     border-radius: 10px;
     padding-top: 6px;
     padding-left: 15px;
-    border: #1d8c6c 0.8px solid;
+    border: #55a603 0.8px solid;
     font-family: "Roboto", sans-serif;
     font-size: 16px;
   }
@@ -1401,7 +1410,8 @@ footer > a {
     flex-direction: row;
     padding-bottom: 10px;
     padding-left: 20px;
-    background: linear-gradient(#ffffff, #ccc1a0);
+    *background: linear-gradient(#ffffff, #ccc1a0);
+    background: linear-gradient(#ffffff, #fdf9bf);
   }
   .iconPost {
     padding-left: 10px;
@@ -1521,7 +1531,7 @@ footer > a {
   .newComment {
     display: flex;
     flex-direction: column;
-    background: linear-gradient(#c7cac9, #ffffff);
+    background: linear-gradient(#fdf9bf, #ffffff);
     margin-top: 5px;
   }
 

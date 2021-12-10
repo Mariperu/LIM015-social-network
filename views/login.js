@@ -1,35 +1,39 @@
+/* eslint-disable operator-linebreak */
+/* eslint-disable quotes */
 /* eslint-disable eol-last */
 /* eslint-disable no-undef */
-import {
-  singInWEP,
-  signInWithGoogle,
-} from '../firebase/auth.js';
+import { singInWEP, signInWithGoogle } from "../firebase/auth.js";
 
 // Logueo con Email and Password
 export const loginWEP = (docForm) => {
-  const formLogin = mainContainer.querySelector('form');
-  formLogin.addEventListener('submit', (e) => {
+  const formLogin = mainContainer.querySelector("form");
+  formLogin.addEventListener("submit", (e) => {
     e.preventDefault(); // detiene propagación de un evento (ejm: n submits) (? en url)
 
-    const idEmailLogin = docForm.querySelector('#idEmailLogin').value;
-    const idPasswordLogin = docForm.querySelector('#idPasswordLogin').value;
-    const msgErrorLogin = docForm.querySelector('.msgErrorLogin');
+    const idEmailLogin = docForm.querySelector("#idEmailLogin").value;
+    const idPasswordLogin = docForm.querySelector("#idPasswordLogin").value;
+    const msgErrorLogin = docForm.querySelector(".msgErrorLogin");
 
     singInWEP(idEmailLogin, idPasswordLogin)
       .then((userCredential) => {
         const user = userCredential.user;
-        if (user.emailVerified === true) { // Valida si user aceptó correo de verificación
-          window.location.hash = '#/home';
+        if (user.emailVerified === true) {
+          // Valida si user aceptó correo de verificación
+          window.location.hash = "#/home";
         } else {
-          msgErrorLogin.textContent = 'Por favor valida tu cuenta antes de ingresar';
+          msgErrorLogin.textContent =
+            "Por favor valida tu cuenta antes de ingresar";
         }
-      }).catch((error) => {
-        if (error.code === 'auth/wrong-password') {
-          msgErrorLogin.textContent = 'La contraseña es incorrecta, intenta nuevamente.';
-        } else if (error.code === 'auth/user-not-found') {
-          msgErrorLogin.textContent = 'El correo no se encuentra registrado, intenta nuevamente.';
+      })
+      .catch((error) => {
+        if (error.code === "auth/wrong-password") {
+          msgErrorLogin.textContent =
+            "La contraseña es incorrecta, intenta nuevamente.";
+        } else if (error.code === "auth/user-not-found") {
+          msgErrorLogin.textContent =
+            "El correo no se encuentra registrado, intenta nuevamente.";
         } else {
-          msgErrorLogin.textContent = 'Ha ocurrido un error. Intenta otra vez.';
+          msgErrorLogin.textContent = "Ha ocurrido un error. Intenta otra vez.";
         }
       });
   });
@@ -37,15 +41,17 @@ export const loginWEP = (docForm) => {
 
 // Logueo con Google
 export const loginWithGoogle = (docForm) => {
-  const idGoogleLogin = docForm.querySelector('#idGoogleLogin');
-  idGoogleLogin.addEventListener('click', (e) => {
+  const idGoogleLogin = docForm.querySelector("#idGoogleLogin");
+  idGoogleLogin.addEventListener("click", (e) => {
     e.preventDefault(); // detiene propagación de un evento (ejm: n submits) (? en url)
 
-    signInWithGoogle().then(() => {
-      window.location.hash = '#/home';
-    }).catch((error) => {
-      console.error(error);
-    });
+    signInWithGoogle()
+      .then(() => {
+        window.location.hash = "#/home";
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   });
 };
 
@@ -105,14 +111,14 @@ export const loginView = () => {
 
         <section class="secLinkRegister">
           <h2 class="textOne">¿No tienes una cuenta?</h2>
-          <h2 class="textTwo" id="textRegisterHere"><a href='#/register'>Registrate aqui</a></h2>
+          <h2 class="textTwo" id="textRegisterHere"><a href='#/register'>Regístrate aquí</a></h2>
         </section>
 
       </section>
   </section>`;
 
-  const mainLogin = document.getElementById('mainContainer');
-  mainLogin.innerHTML = '';
+  const mainLogin = document.getElementById("mainContainer");
+  mainLogin.innerHTML = "";
   mainLogin.innerHTML = view;
 
   loginWEP(mainLogin);
